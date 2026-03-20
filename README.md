@@ -8,4 +8,10 @@
 curl -O https://raw.githubusercontent.com/dali114514/heshen/main/heshen.html
 ```
 
-下载后用浏览器打开 `heshen.html` 即可。
+## 使用
+
+下载后双击 `heshen.html`，或在终端运行：
+
+```bash
+open heshen.html
+```
