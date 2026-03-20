@@ -5,13 +5,13 @@
 ## 下载
 
 ```bash
-curl -O https://raw.githubusercontent.com/dali114514/heshen/main/heshen.html
+git clone https://github.com/dali114514/heshen.git
 ```
 
 ## 使用
 
-下载后双击 `heshen.html`，或在终端运行：
+进入文件夹，双击 `heshen.html`，或在终端运行：
 
 ```bash
-open heshen.html
+cd heshen && open heshen.html
 ```
