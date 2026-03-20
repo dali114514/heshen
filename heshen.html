@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>禾神真神了</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      overflow: hidden;
+    }
+
+    .duck {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .duck:active {
+      transform: scale(0.92);
+    }
+
+    .duck.shake {
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%   { transform: scale(1); }
+      20%  { transform: scale(1.08) rotate(-4deg); }
+      40%  { transform: scale(1.08) rotate(4deg); }
+      60%  { transform: scale(1.05) rotate(-2deg); }
+      80%  { transform: scale(1.05) rotate(2deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    #label {
+      position: fixed;
+      bottom: 60px;
+      color: #fff;
+      font-size: 18px;
+      font-family: sans-serif;
+      opacity: 0.4;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="duck" src="b_30f75997e0c0b84b860fa2ae3ea07a5b.jpg" alt="禾神" data-text="禾神真神了">
+  <img class="duck" src="heshen2.jpg" alt="禾神炸鱼" data-text="禾神又在炸鱼">
+
+  <script>
+    function speak(text) {
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "zh-CN";
+      utter.rate = 0.85;
+      utter.pitch = 1.1;
+      window.speechSynthesis.speak(utter);
+    }
+
+    document.querySelectorAll('.duck').forEach(img => {
+      img.addEventListener('click', () => {
+        img.classList.remove('shake');
+        void img.offsetWidth;
+        img.classList.add('shake');
+        img.addEventListener('animationend', () => img.classList.remove('shake'), { once: true });
+        speak(img.dataset.text);
+      });
+    });
+  </script>
+
+</body>
+</html>
